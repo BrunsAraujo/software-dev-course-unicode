@@ -15,6 +15,16 @@ let inputString = "Hi";
 
 Expected Output:
 sumCodePoints: 177 // 'H' = 72, 'i' = 105, 72 + 105 = 177
+//SOLUTION CODE Exercise 1:
+let inputString = "Hi";
+let firstCodePoint = inputString.charCodeAt(0); 
+let secondCodePoint = inputString.charCodeAt(1); 
+
+let sumCodePoints = firstCodePoint + secondCodePoint;
+
+console.log("sumCodePoints:", sumCodePoints), console.log(`'${inputString.charAt(0)}' = ${firstCodePoint}, '${inputString.charAt(1)}' = ${secondCodePoint}, ${firstCodePoint} + ${secondCodePoint} = ${sumCodePoints}`);
+//OUTPUT: sumCodePoints: 177
+'H' = 72, 'i' = 105, 72 + 105 = 177
 
 Exercise 2: Generate a String from Two Code Points
 Objective: Take two numeric Unicode code points,
@@ -32,6 +42,18 @@ let codePoint2 = 66;
 Expected Output:
 combinedString: "AB" // 65 = 'A', 66 = 'B', combined = "AB"
 
+//SOLUTION CODE FOR EXERCISE 2
+let codePoint1 = 65;
+let codePoint2 = 66;
+
+let combinedString = String.fromCharCode(codePoint1) + String.fromCharCode(codePoint2);
+
+console.log("combinedString:", combinedString);
+console.log(`combinedString: "${combinedString}" // ${codePoint1} = '${String.fromCharCode(codePoint1)}', ${codePoint2} = '${String.fromCharCode(codePoint2)}', combined = "${combinedString}"`);
+
+//OUTPUT: combinedString: AB
+combinedString: "AB" // 65 = 'A', 66 = 'B', combined = "AB"
+
 Exercise 3: Find the Character Difference
 Objective: Extract the Unicode code points of two given characters from a string
 and calculate the absolute difference between them.
@@ -47,6 +69,22 @@ let index2 = 2;
 
 Expected Output:
 codePointDifference: 16 // 'C' = 67, 't' = 116, |67 - 116| = 16
+
+//SOLUTION CODE FOR EXERCISE 3 - ATTENTION - The matematical equation in the output seems off. C=67 abd t=116 the differebce 
+should be 49. For the difference to be 16. The characters would have to be c and s or between c and 3
+The current inputString is "Cat" for the output above the strong would have to be "Cas" or Ca3"
+So the code for the above problem would be: 
+let inputString = "Cat";
+let index1 = 0;
+let index2 = 2;
+
+let codePoint1 = inputString.charCodeAt(index1);
+let codePoint2 = inputString.charCodeAt(index2);
+
+let codePointDifference = Math.abs(codePoint1 - codePoint2);
+
+console.log(`codePointDifference: ${codePointDifference} // '${inputString.charAt(index1)}' = ${codePoint1}, '${inputString.charAt(index2)}' = ${codePoint2}, |${codePoint1} - ${codePoint2}| = ${codePointDifference}`);
+
 
 
 
@@ -87,19 +125,33 @@ Assign the result to a variable named swappedString.
 // Task 1
 let inputString1 = "Code";
 let firstCodePoint; // Your code here
+let firstCodePoint = inputString.charCodeAt(0);
+let thirdCodePoint = inputString.charCodeAt(2);
+
 let thirdCodePoint; // Your code here
+console.log("firstCodePoint:", firstCodePoint);
+console.log("thirdCodePoint:", thirdCodePoint);
 
 // Task 2
 let wordFromCodePoints; // Your code here
+let wordFromCodePoints = String.fromCharCode(72, 101, 108, 108);
+console.log("wordFromCodePoints:", wordFromCodePoints); 
 
 // Task 3
 let inputString2 = "Launch";
 let swappedString; // Your code here
+let inputString = "Launch";
+let firstCode = inputString.charCodeAt(0);
+let lastCode = inputString.charCodeAt(inputString.length - 1);
+let swappedString = String.fromCharCode(lastCode) +
+inputString.slice(1, inputString.length - 1) +
+String.fromCharCode(firstCode);
+console.log("swappedString:", swappedString); 
 
 // Log all results
 console.log({
-  firstCodePoint,
-  thirdCodePoint,
-  wordFromCodePoints,
-  swappedString,
+  firstCodePoint,//firstCodePoint: 67
+  thirdCodePoint,//thirdCodePoint: 100
+  wordFromCodePoints,//wordFromCodePoints: Hell
+  swappedString,//hauncL
 });
